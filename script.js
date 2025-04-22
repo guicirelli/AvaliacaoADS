@@ -17,21 +17,30 @@ form.addEventListener('submit', function (e) {
     form.reset();
   }
 });
+
 function atualizarLista() {
-    lista.innerHTML = '';
-    let total = 0;
-  
-    gastos.forEach((gasto, index) => {
-      total += gasto.valor;
-  
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <span>${gasto.descricao} - 
-          R$ <span class="${gasto.valor > 100 ? 'vermelho' : ''}">
-          ${gasto.valor.toFixed(2)}</span> 
-          [${gasto.categoria}]
-        </span>
-       <button onclick="removerGasto(${index})">Excluir</button>
+  lista.innerHTML = '';
+  let total = 0;
+
+  gastos.forEach((gasto, index) => {
+    total += gasto.valor;
+
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <span>${gasto.descricao} - 
+        R$ <span class="${gasto.valor > 100 ? 'vermelho' : ''}">
+        ${gasto.valor.toFixed(2)}</span> 
+        [${gasto.categoria}]
+      </span>
+      <button onclick="removerGasto(${index})">Excluir</button>
     `;
     lista.appendChild(li);
   });
+
+  totalSpan.textContent = total.toFixed(2);
+}
+
+function removerGasto(index) {
+  gastos.splice(index, 1);
+  atualizarLista();
+}
