@@ -31,4 +31,7 @@ function atualizarLista() {
           ${gasto.valor.toFixed(2)}</span> 
           [${gasto.categoria}]
         </span>
-       
+       <button onclick="removerGasto(${index})">Excluir</button>
+    `;
+    lista.appendChild(li);
+  });
