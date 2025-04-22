@@ -7,10 +7,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Calculadora de Gastos</h1>
+<h1>Calculadora de Gastos</h1>
+<form id="gasto-form">
     <input type="text" id="descricao" placeholder="Descrição (ex: lanche)" required />
     <input type="number" id="valor" placeholder="Valor (ex: 10.50)" step="0.01" required />
     <input type="text" id="categoria" placeholder="Categoria (ex: Transporte)" required />
+    <button type="submit">Adicionar Gasto</button>
+  </form>
+  <h2>Lista de Gastos</h2>
+  
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
